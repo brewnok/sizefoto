@@ -315,11 +315,12 @@ function App() {
                     id="min-size"
                     type="text"
                     // min="1"
-                    value={minSize}
+                    // value={minSize}
                     onChange={(e) =>
-                      setMinSize(Math.max(0, parseInt(e.target.value) || 0))
+                      setMinSize(Math.max('', parseInt(e.target.value) || ''))
                     }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+                    placeholder="Enter the minimum size in KB"
                   />
                 </div>
 
@@ -334,13 +335,15 @@ function App() {
                     id="max-size"
                     type="text"
                     // min={minSize + 1}
-                    value={maxSize}
+                    // value={maxSize}
                     onChange={(e) =>
                       setMaxSize(
-                        Math.max(0, parseInt(e.target.value) || 0)
+                        Math.max('', parseInt(e.target.value) || '')
                       )
                     }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+                    placeholder="Enter the minimum size in KB"
+                    
                   />
                 </div>
               </div>

@@ -13,8 +13,8 @@ import footerimg from "./images/footerimage.png";
 function App() {
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
-  const [minSize, setMinSize] = useState<number>(100);
-  const [maxSize, setMaxSize] = useState<number>(500);
+  const [minSize, setMinSize] = useState<number>(50);
+  const [maxSize, setMaxSize] = useState<number>(100);
   const [processedImage, setProcessedImage] = useState<string | null>(null);
   const [processedSize, setProcessedSize] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -138,8 +138,8 @@ function App() {
         canvas.height = height;
 
         // Binary search approach to find the right quality
-        let minQuality = 0.01; // Start with very low quality
-        let maxQuality = 1.0;
+        let minQuality = 0.001; // Start with very low quality
+        let maxQuality = 100.00;
         quality = 0.7; // Start with a moderate quality
 
         while (attempts < maxAttempts) {
@@ -313,11 +313,11 @@ function App() {
                   </label>
                   <input
                     id="min-size"
-                    type="number"
-                    min="1"
+                    type="text"
+                    // min="1"
                     value={minSize}
                     onChange={(e) =>
-                      setMinSize(Math.max(1, parseInt(e.target.value) || 0))
+                      setMinSize(Math.max(0, parseInt(e.target.value) || 0))
                     }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
                   />
@@ -332,12 +332,12 @@ function App() {
                   </label>
                   <input
                     id="max-size"
-                    type="number"
-                    min={minSize + 1}
+                    type="text"
+                    // min={minSize + 1}
                     value={maxSize}
                     onChange={(e) =>
                       setMaxSize(
-                        Math.max(minSize + 1, parseInt(e.target.value) || 0)
+                        Math.max(0, parseInt(e.target.value) || 0)
                       )
                     }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"

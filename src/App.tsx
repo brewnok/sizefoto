@@ -8,7 +8,7 @@ import {
   Download,
 } from "lucide-react";
 import sizefotologo from "./images/sizephotologo.png";
-import footerimg from "./images/footerimage.png";
+
 
 function App() {
   const [image, setImage] = useState<File | null>(null);
@@ -446,10 +446,6 @@ function App() {
               )}
             </div>
           </div>
-        </div>
-
-        <div className="bg-gray-50 px-6 py-4 flex items-center justify-center">
-          <img src={footerimg} alt="Logo" className="h-auto w-[200px] mr-2" />
         </div>
       </div>
     </div>
